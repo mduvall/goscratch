@@ -1,14 +1,18 @@
 package algorithms
 
-import (
-	"fmt"
-)
-
 // Number of ways to do n choose m
 func BinomialCoefficients(n int, m int) int {
-	tab := [100][100]int{}
+	tab := [20][20]int{}
 
-	fmt.Println(tab)
+	for i := 0; i < 20; i++ {
+		tab[i][0] = 1
+		tab[i][i] = 1
+	}
 
-	return 1
+	for i := 1; i < 20; i++ {
+		for j := 1; j < i; j++ {
+			tab[i][j] = tab[i-1][j-1] + tab[i-1][j]
+		}
+	}
+	return tab[n][m]
 }
