@@ -1,7 +1,6 @@
 package structures
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -10,7 +9,6 @@ func Test_BuildHeapWorks(t *testing.T) {
 	h := BuildHeap(vals)
 
 	for len(h.Elements) > 1 {
-		fmt.Println(h.Min())
 		h.DeleteMin()
 	}
 }
